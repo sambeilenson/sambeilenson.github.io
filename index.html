@@ -5,15 +5,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sam Beilenson — Data Scientist & Music Educator</title>
-  <meta name="description" content="Sam Beilenson | Data Scientist, Psych Major, Jazz Drummer & Guitarist. Portfolio showcasing projects, experience, and music.">
+  <meta name="description" content="Sam Beilenson | Data Scientist, Psych Major, Jazz Drummer & Guitarist. Portfolio showcasing projects, experience, and music." />
+  <meta name="keywords" content="Data Science, Machine Learning, Python, R, Psychology, Music Education, Jazz, Visualization, Projects, Portfolio" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Sam Beilenson — Data Scientist & Music Educator" />
+  <meta property="og:description" content="Portfolio of Sam Beilenson, Data Scientist and Music Educator." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="headshot.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- 1. SITE NAVIGATION -->
+  <!-- NAVIGATION -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <button id="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <ul>
-      <li><a href="#home"     aria-current="page">Home</a></li>
+      <li><a href="#home" aria-current="page">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -21,166 +36,151 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <!-- Dark/Light theme toggle -->
-    <button id="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
+    <button id="theme-toggle" aria-label="Toggle dark/light theme" aria-pressed="false">🌙</button>
   </nav>
 
-
-  <!-- 2. HERO / HOME SECTION -->
-  <header id="home" class="hero">
-    <!-- Headshot -->
-    <!--<img src="FAV2.jpeg" alt="Sam Beilenson headshot" class="hero__avatar" /-->!>
-
+  <!-- HERO -->
+  <header id="home" class="hero" role="banner">
+    <img
+      src="headshot.png"
+      alt="Portrait of Sam Beilenson"
+      class="hero__avatar"
+      loading="lazy"
+      width="200"
+      height="200"
+    />
     <div class="hero__text">
       <h1>Sam Beilenson</h1>
-      <p class="hero__subtitle">Data Scientist • Psychology • Music Educator</p>
+      <p class="hero__tagline">Turning Data into Stories &amp; Sound</p>
+      <p class="hero__subtitle">Data Scientist &amp; Music Educator</p>
       <p class="hero__cta">
         <a href="#contact" class="btn btn--primary">Get in Touch</a>
-        <a href="SamBeilenson_Resume.pdf" target="_blank" class="btn btn--secondary">Download Résumé</a>
+        <a
+          href="SamBeilenson_Resume.pdf"
+          class="btn btn--secondary"
+          download="SamBeilenson_Resume.pdf"
+          >Download Resumé</a
+        >
       </p>
     </div>
   </header>
-  
 
-  <main>
-    <main>
-        <section id="about" class="section about">
-          <h2>About Me</h2>
-      
-          <p>
-            I’m a data scientist, musician, and storyteller who turns complexity into clarity. Whether I’m behind a drum kit or diving into a dataset, I’ve spent my life tuning in to patterns and bringing ideas to life with meaningful impact.
-          </p>
-      
-          <p>
-            I’m currently pursuing my M.S. in Data Science at Willamette University, after earning a B.A. in Psychology (minors in Economics &amp; Music) from the University of Portland (GPA: 3.8, 4.0 in major). My work lives at the crossroads of performance, insight, and communication—shaped by 20+ years onstage and a growing portfolio of data-driven projects.
-          </p>
-      
-          <p>
-            <a href="#contact" class="btn btn--primary">Let’s Connect!</a>
-          </p>
-        </section>
-      </main>
-      
-      
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
 
-      
-              
-</section>
+    <!-- ABOUT -->
+    <section id="about" class="section about" tabindex="-1">
+      <h2>About Me</h2>
+      <p>
+        I’m a data scientist, musician, and storyteller who turns complexity into clarity. Whether I’m on stage or in the lab, I seek patterns that reveal insights and inspire action.
+      </p>
+      <p>
+        I’m pursuing an M.S. in Data Science at Willamette University after earning a B.A. in Psychology (minors in Economics & Music) from the University of Portland. I’ve led IRB-approved evolutionary psychology research presented at the WPA Conference, engineered R-based machine-learning pipelines on 50,000+ essays for an AI text classifier (achieving 92% accuracy with SVM and Random Forest models), co-won a Sales Engineering Competition with an AI forecasting prototype, and performed as a drummer on many different stages and a variety of settings; while teaching private drum and guitar lessons at Bach to Rock, Backbeat, and 4/4 music schools.
 
       </p>
+      <p><a href="#contact" class="btn btn--primary">Let’s Connect!</a></p>
     </section>
 
-    <!-- 4. SKILLS -->
-    <section id="skills" class="section skills">
+    <!-- SKILLS -->
+    <section id="skills" class="section skills" tabindex="-1">
       <h2>Skills</h2>
       <div class="skills__grid">
-        <div class="skills__item">
-          <h3>Data Analysis</h3>
+        <div class="skill-card">
+          <h3>Data Analysis <span class="skill-level">Advanced</span></h3>
           <p>R, Python (pandas, scikit-learn), SPSS, STATA, hypothesis testing, regression modelling</p>
         </div>
-        <div class="skills__item">
-          <h3>Visualization</h3>
+        <div class="skill-card">
+          <h3>Visualization <span class="skill-level">Intermediate</span></h3>
           <p>ggplot2, Tableau, R Shiny, Canva, PowerPoint</p>
         </div>
-        <div class="skills__item">
-          <h3>Research & Methods</h3>
+        <div class="skill-card">
+          <h3>Research &amp; Methods <span class="skill-level">Advanced</span></h3>
           <p>Survey design, experimental design, sampling, data cleaning, feature engineering</p>
         </div>
-        <div class="skills__item">
-          <h3>Music & Instruction</h3>
-          <p>Drums (jazz/blues), guitar, lesson planning, improvisation coaching</p>
+        <div class="skill-card">
+          <h3>Music &amp; Instruction <span class="skill-level">Intermediate</span></h3>
+          <p>Drums, guitar, lesson planning, all ages and stages</p>
         </div>
-        <div class="skills__item">
-          <h3>Communication</h3>
+        <div class="skill-card">
+          <h3>Communication <span class="skill-level"></span></h3>
           <p>Public speaking, report writing, teamwork, stakeholder engagement</p>
         </div>
       </div>
     </section>
 
-<!-- 5. PROJECTS -->
-<section id="projects" class="section projects">
-    <h2>Featured Projects</h2>
-    <div class="projects__grid">
-  
-      <article class="project">
-        <h3>AI vs. Human Writing Classifier</h3>
-        <p>
-          Built a machine-learning pipeline in R to distinguish AI-generated from human-written essays (n &gt; 50,000).  
-          Engineered 20+ linguistic features, performed PCA and hypothesis testing, and trained SVM & Random Forest models.
-        </p>
-        <!-- <p><a href="https://github.com/sam-beilenson/ai-vs-human-writings" target="_blank">View on GitHub</a></p> -->
-      </article>
-  
-      <article class="project">
-        <h3>Psychology of Grief Thesis</h3>
-        <p>
-          Led an independent study on the evolutionary function of grief.  
-          Managed IRB-approved data collection, conducted SPSS analyses, and presented findings at WPA Conference & UP Scholarship Day.
-        </p>
-        <!-- <p><a href="https://github.com/your-repo-link" target="_blank">Read the paper</a></p> -->
-      </article>
-  
-      <article class="project">
-        <h3>OptiStock Sales Engineering Competition</h3>
-        <p>
-          Co-led a fictional client pitch with my partner for our Sales Engineering class, designing a smart-inventory solution.  
-          We built ETL pipelines, integrated RFID tracking, coded an AI forecasting model, automated stakeholder emails in Python, and created a Figma prototype website.  
-          Presented to industry judges—our demo projected a 30% stockout reduction and ultimately “won the sale” against several competing teams.
-        </p>
-        <!-- <p><a href="https://github.com/your-opti-stock-repo" target="_blank">View prototype</a></p> -->
-      </article>
-  
-    </div>
-  </section>
-  
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects" tabindex="-1">
+      <h2>Featured Projects</h2>
+      <div class="projects__grid">
+        <article class="project">
+          <h3>AI vs. Human Writing Classifier</h3>
+          <p>
+            Built an R‐based ML pipeline on 50 000+ essays, engineered 20+ linguistic features, performed PCA and hypothesis tests, and trained SVM & Random Forest models—achieving 92 % accuracy in validation.
+          </p>
+          <p>
+            <a href="https://github.com/sam-beilenson/ai-vs-human-writings" target="_blank" rel="noopener">View Presentation - Feel free to reach out for full code!</a>
+          </p>
+        </article>
+        <article class="project">
+          <h3>Psychology of Grief Thesis</h3>
+          <p>
+            Led an IRB‐approved study on evolutionary functions of grief, collected N = 150 survey responses, ran SPSS ANOVAs and regression models, and presented findings at the WPA Conference & UP Scholarship Day.
+          </p>
+          <p>
+            <a href="path/to/paper.pdf" target="_blank" rel="noopener">Read the Paper</a>
+          </p>
+        </article>
+        <article class="project">
+          <h3>OptiStock Sales Engineering Competition</h3>
+          <p>
+            Co‐led a team to design a smart inventory solution—building ETL pipelines, integrating RFID tracking, coding AI forecasting models, and prototyping in Figma. Judges projected a 30 % stockout reduction; we won “Best Pitch.”
+          </p>
+          <p>
+            <a href="https://github.com/your-opti-stock-repo" target="_blank" rel="noopener">View Presentation</a>
+          </p>
+        </article>
+      </div>
+    </section>
 
-<!-- 6. EXPERIENCE -->
-<section id="experience" class="section experience">
-    <h2>Professional Experience</h2>
-    <ul class="timeline">
-  
-      <li class="timeline__item">
-        <h3>Music Teacher — Bach to Rock: America’s Music School</h3>
-        <time datetime="2024-06">Jun 2024–Present</time>
-        <p>Part-time, on-site in Hillsboro, OR. Provide private drum & guitar instruction, develop individualized lesson plans, and organize student showcases.</p>
-      </li>
-  
-      <li class="timeline__item">
-        <h3>Pep Band Drummer — University of Portland</h3>
-        <time datetime="2021-10">Oct 2021–Aug 2024</time>
-        <p>Drummer for the Pilot Basketball team’s pep band, including WCC Tournament in Las Vegas 2022 and NCAA March Madness (UCLA) 2023.</p>
-      </li>
-  
-      <li class="timeline__item">
-        <h3>Research Assistant — University of Portland</h3>
-        <time datetime="2021-08">Aug 2021–Aug 2024</time>
-        <p>Contributed to evolutionary psychology research: designed experiments, collected & analyzed data in R/SPSS, and performed literature reviews.</p>
-      </li>
-  
-      <li class="timeline__item">
-        <h3>Recording Engineer — University of Portland</h3>
-        <time datetime="2021-08">Aug 2021–Jul 2024</time>
-        <p>Engineered recordings for Music & Arts programs, managed studio equipment, and supported student productions.</p>
-      </li>
-  
-      <li class="timeline__item">
-        <h3>Peer Wellness Ambassador — University of Portland</h3>
-        <time datetime="2021-08">Aug 2021–May 2022</time>
-        <p>Advocated for mental health in campus residencies; led peer support workshops and wellness events.</p>
-      </li>
-  
-      <li class="timeline__item">
-        <h3>Human Resources Intern — Medinet (Sydney, Australia)</h3>
-        <time datetime="2023-06">Jun 2023–Aug 2023</time>
-        <p>Part-time HR intern: ran new-hire inductions, drafted job descriptions, assisted on HR strategy, and collaborated cross-departmentally.</p>
-      </li>
-  
-    </ul>
-  </section>
-  
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section experience" tabindex="-1">
+      <h2>Professional Experience</h2>
+      <ul class="timeline">
+        <li class="timeline__item">
+          <h3>Music Teacher — Bach to Rock: America’s Music School</h3>
+          <time datetime="2024-06">Jun 2024–Present</time>
+          <p>Part-time, on-site in Hillsboro, OR. Private drum & guitar instruction; develop individualized lesson plans; taught students of all ages and skill levels. </p>
+        </li>
+        <li class="timeline__item">
+          <h3>Pep Band Drummer — University of Portland</h3>
+          <time datetime="2021-10">Oct 2021–Aug 2024</time>
+          <p>Drummer for the Pilot Basketball pep band, including WCC Tournament (Las Vegas 2022) and NCAA March Madness (UCLA 2023).</p>
+        </li>
+        <li class="timeline__item">
+          <h3>Research Assistant — University of Portland</h3>
+          <time datetime="2021-08">Aug 2021–Aug 2024</time>
+          <p>Contributed to evolutionary psychology research: designed experiments, collected & cleaned survey data (N>200), and performed analyses in R/SPSS.</p>
+        </li>
+        <li class="timeline__item">
+          <h3>Recording Engineer — University of Portland</h3>
+          <time datetime="2021-08">Aug 2021–Jul 2024</time>
+          <p>Engineered recordings for Music & Arts programs, managed studio equipment, and supported student productions.</p>
+        </li>
+        <li class="timeline__item">
+          <h3>Peer Wellness Ambassador — University of Portland</h3>
+          <time datetime="2021-08">Aug 2021–May 2022</time>
+          <p>Advocated for mental health in campus residences; led peer support workshops and wellness events.</p>
+        </li>
+        <li class="timeline__item">
+          <h3>Human Resources Intern — Medinet (Sydney, Australia)</h3>
+          <time datetime="2023-06">Jun 2023–Aug 2023</time>
+          <p>Part-time HR intern: ran new-hire inductions, drafted job descriptions, assisted on HR strategy, and collaborated cross-departmentally.</p>
+        </li>
+      </ul>
+    </section>
 
-    <!-- 7. EDUCATION -->
-    <section id="education" class="section education">
+    <!-- EDUCATION -->
+    <section id="education" class="section education" tabindex="-1">
       <h2>Education</h2>
       <ul class="timeline">
         <li class="timeline__item">
@@ -191,27 +191,28 @@
         <li class="timeline__item">
           <h3>University of Portland, BA in Psychology</h3>
           <time datetime="2024-05">May 2024</time>
-          <p>Minors: Economics & Music | GPA: 3.8 (Major 4.0)</p>
+          <p>Minors: Economics & Music | GPA 3.8 (Major 4.0)</p>
         </li>
       </ul>
     </section>
 
-    <!-- 8. CONTACT -->
-    <section id="contact" class="section contact">
+    <!-- CONTACT -->
+    <section id="contact" class="section contact" tabindex="-1">
       <h2>Contact Me</h2>
       <address>
         <p>Email: <a href="mailto:sbeilenson@me.com">sbeilenson@me.com</a></p>
         <p>Phone: <a href="tel:+13235744079">(323) 574-4079</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/sambeilenson/" target="_blank">samuel-beilenson</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sambeilenson/" target="_blank" rel="noopener">samuel-beilenson</a></p>
       </address>
     </section>
+
   </main>
 
-  <!-- 9. FOOTER -->
-  <footer class="site-footer">
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
     <p>&copy; 2025 Sam Beilenson. Built with HTML, CSS & GitHub Pages.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

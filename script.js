@@ -1,71 +1,87 @@
-// script.js — Smooth scroll, scroll-spy, reveal, and theme toggle
+(() => {
+  'use strict';
 
-// 1. SMOOTH SCROLL FOR NAV LINKS
-document.querySelectorAll('.site-nav a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const id = link.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. SMOOTH SCROLL + HISTORY UPDATE
+    document.querySelectorAll('.site-nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const id = link.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, '', `#${id}`);
+        }
+      }, { passive: true });
     });
-  });
-  
-  // 2. SCROLL-SPY: HIGHLIGHT NAV ITEM
-  const sections = document.querySelectorAll('main section[id]');
-  const navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
-  const spyObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const navLink = document.querySelector(`.site-nav a[href="#${entry.target.id}"]`);
-      if (entry.isIntersecting) {
-        navLinks.forEach(l => l.removeAttribute('aria-current'));
-        navLink && navLink.setAttribute('aria-current', 'page');
-      }
-    });
-  }, { rootMargin: '-50% 0px -50% 0px' });
-  sections.forEach(sec => spyObserver.observe(sec));
-  
-  // 3. REVEAL ANIMATIONS
-  document.querySelectorAll('.section, .project, .timeline__item').forEach(el => {
-    const revObs = new IntersectionObserver((entries, obs) => {
+
+    // 2. SCROLL-SPY + REVEAL ANIMATIONS
+    const sections = document.querySelectorAll('main section[id], .project, .timeline__item');
+    const navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        // Reveal on first intersection
+        if (entry.intersectionRatio > 0.15) {
           entry.target.classList.add('is-revealed');
           obs.unobserve(entry.target);
         }
+        // Scroll-spy underline when section is mid-screen
+        if (entry.target.id && entry.intersectionRatio > 0.5) {
+          navLinks.forEach(l => l.removeAttribute('aria-current'));
+          const link = document.querySelector(`.site-nav a[href="#${entry.target.id}"]`);
+          link?.setAttribute('aria-current', 'page');
+        }
       });
-    }, { threshold: 0.15 });
-    revObs.observe(el);
-  });
-  
-  // 4. DARK/LIGHT THEME TOGGLE
-  const themeToggle = document.getElementById('theme-toggle');
-  const saved = localStorage.getItem('theme');
-  
-  let theme = saved
-    ? saved
-    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  
-  document.body.dataset.theme = theme;
-  if (themeToggle) {
-    themeToggle.textContent = (theme === 'dark') ? '🌞' : '🌙';
-    themeToggle.addEventListener('click', () => {
-      theme = (document.body.dataset.theme === 'dark') ? 'light' : 'dark';
+    }, {
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: [0.15, 0.5]
+    });
+    sections.forEach(el => observer.observe(el));
+
+    // 3. MOBILE NAV TOGGLE
+    const mobileToggle = document.getElementById('mobile-nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    mobileToggle.addEventListener('click', () => {
+      const opened = nav.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', opened);
+    });
+
+    // 4. THEME TOGGLE
+    const themeToggle = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+    const applyTheme = theme => {
       document.body.dataset.theme = theme;
+      themeToggle.setAttribute('aria-pressed', theme === 'dark');
+      themeToggle.textContent = theme === 'dark' ? '🌞' : '🌙';
       localStorage.setItem('theme', theme);
-      themeToggle.textContent = (theme === 'dark') ? '🌞' : '🌙';
+    };
+    applyTheme(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      currentTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(currentTheme);
     });
-  }
-  
-  // 5. OPTIONAL CONTACT FORM VALIDATION
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-      const n = contactForm.elements['name']?.value.trim();
-      const m = contactForm.elements['message']?.value.trim();
-      if (!n || !m) {
-        e.preventDefault();
-        alert('Please fill out both your name and message before submitting.');
-      }
-    });
-  }
-  
+
+    // 5. CONTACT FORM VALIDATION
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', e => {
+        const name = form.elements['name']?.value.trim();
+        const message = form.elements['message']?.value.trim();
+        if (!name || !message) {
+          e.preventDefault();
+          form.elements[!name ? 'name' : 'message'].focus();
+          alert(`Please fill out your ${!name ? 'name' : 'message'} before submitting.`);
+        }
+      });
+    }
+
+    // 6. DISABLE AUTO SCROLL RESTORATION
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  });
+})();
