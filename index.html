@@ -112,76 +112,70 @@
     </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section projects" tabindex="-1">
-  <h2>Featured Projects</h2>
-  <div class="projects__grid">
+<section id="projects" class="bg-white py-16 px-6 sm:px-12">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-gray-900 mb-10 text-center">📁 Projects & Work</h2>
 
-    <article class="project">
-      <h3>AI vs. Human-Composed Music Classifier</h3>
-      <p>
-        Built a transparent ML pipeline to distinguish AI-generated solo piano from human performances using acoustic features (spectral bandwidth, tempo variability, chroma balance). Stacking ensemble achieved 82.1% accuracy (AUC 0.924) with interpretable visualizations.
-      </p>
-      <p>
-        <a href="https://wu-msds-capstones.github.io/project-writeup-sam-sam-capstone/?bust=1755204140" target="_blank" rel="noopener">🌐 View Project Website</a>
-      </p>
-    </article>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-    <article class="project">
-      <h3>AI vs. Human Writing Classifier</h3>
-      <p>
-        Built an R-based ML pipeline on 50,000+ essays, engineered 20+ linguistic features, performed PCA and hypothesis tests, and trained SVM & Random Forest models—achieving 92% accuracy in validation.
-      </p>
-      <p>
-        <a href="assets/presentations/ai-text-classifier.pdf" target="_blank" rel="noopener">📄 View Presentation</a>
-      </p>
-      <p>
-        <a href="https://github.com/sambeilenson/ai-vs-human-writings" target="_blank" rel="noopener">💻 View Code (GitHub)</a>
-      </p>
-    </article>
+      <!-- AI Text Classifier -->
+      <div class="bg-gray-50 rounded-2xl shadow-md p-6">
+        <h3 class="text-2xl font-semibold mb-2 text-gray-800">🤖 AI vs Human Text Classifier</h3>
+        <p class="text-gray-600 mb-4">
+          A machine learning model distinguishing AI-generated essays from human-written ones using linguistic features, PCA, and a tidymodels pipeline in R.
+        </p>
+        <a href="portfolio/assets/presentations/ai-text-classifier.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
+          📄 View Presentation (PDF)
+        </a>
+      </div>
 
-    <article class="project">
-      <h3>Psychology of Grief Thesis</h3>
-      <p>
-        Led an IRB-approved study on evolutionary functions of grief, collected N=150 survey responses, ran SPSS ANOVAs and regression models, and presented findings at the WPA Conference & UP Scholarship Day.
-      </p>
-      <p>
-        <a href="assets/papers/grief-thesis.pdf" target="_blank" rel="noopener">📄 Read the Thesis</a>
-      </p>
-    </article>
+      <!-- MLB Umpire Scorecard -->
+      <div class="bg-gray-50 rounded-2xl shadow-md p-6">
+        <h3 class="text-2xl font-semibold mb-2 text-gray-800">⚾ MLB Umpire Scorecard Analysis</h3>
+        <p class="text-gray-600 mb-4">
+          A data visualization project analyzing MLB umpire accuracy, leverage index, and highlighting the first female umpire, Jen Pawol, using pitch-by-pitch data.
+        </p>
+        <a href="portfolio/assets/presentations/mlb-umpire-presentation.pptx" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
+          📊 View Presentation (PPTX)
+        </a>
+      </div>
 
-    <article class="project">
-      <h3>OptiStock Sales Engineering Competition</h3>
-      <p>
-        Co-led a team to design a smart inventory solution—building ETL pipelines, integrating RFID tracking, coding AI forecasting models, and prototyping in Figma. Judges projected a 30% stockout reduction; we won “Best Pitch.”
-      </p>
-      <p>
-        <a href="assets/presentations/optistock.pdf" target="_blank" rel="noopener">📄 View Presentation</a>
-      </p>
-    </article>
+      <!-- OptiStock Sales Deck -->
+      <div class="bg-gray-50 rounded-2xl shadow-md p-6">
+        <h3 class="text-2xl font-semibold mb-2 text-gray-800">📦 OptiStock Inventory System</h3>
+        <p class="text-gray-600 mb-4">
+          A smart warehouse and sales engineering solution using barcode scanning, IoT sensors, and AI-ready data integration to optimize inventory visibility and fulfillment.
+        </p>
+        <a href="portfolio/assets/presentations/optistock.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
+          📑 View Sales Deck (PDF)
+        </a>
+      </div>
 
-    <article class="project">
-      <h3>MLB Umpire Analysis</h3>
-      <p>
-        Analyzed pitch call accuracy and leverage index trends across MLB games. Included performance analysis of Jen Pawol, MLB's first female umpire.
-      </p>
-      <p>
-        <a href="assets/presentations/mlb-umpire-presentation.pptx" target="_blank" rel="noopener">📄 View Slides</a>
-      </p>
-      <p>
-        <a href="https://github.com/sambeilenson/mlb-umpire-analysis" target="_blank" rel="noopener">💻 View Code (GitHub)</a>
-      </p>
-    </article>
+      <!-- Grief Thesis -->
+      <div class="bg-gray-50 rounded-2xl shadow-md p-6">
+        <h3 class="text-2xl font-semibold mb-2 text-gray-800">🧠 Psychology Thesis: Grief as an Adaptive Response</h3>
+        <p class="text-gray-600 mb-4">
+          A BA psychology thesis exploring the adaptive functions of grief through an evolutionary psychology framework. Discusses biological, cognitive, and emotional perspectives.
+        </p>
+        <a href="portfolio/assets/papers/grief-thesis.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
+          📘 Read Thesis (PDF)
+        </a>
+      </div>
 
-    <article class="project">
-      <h3>Cooking.com Data Pipeline</h3>
-      <p>
-        Designed a data engineering pipeline and dashboard for Cooking.com to track recipe usage and optimize engagement via data-informed UI/UX strategies.
-      </p>
-      <p>
-        <a href="https://your-link.com/cooking-pipeline-presentation.pdf" target="_blank" rel="noopener">📄 View Presentation</a>
-      </p>
-    </article>
+    </div>
 
+    <!-- Optional Resume Button -->
+    <div class="mt-12 text-center">
+      <a
+        href="portfolio/assets/resume/SamBeilensonResume.pdf"
+        class="inline-block px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-xl text-lg font-medium"
+        target="_blank"
+        rel="noopener"
+        download="SamBeilensonResume.pdf"
+      >
+        📄 Download Résumé
+      </a>
+    </div>
   </div>
 </section>
 
